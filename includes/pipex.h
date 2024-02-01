@@ -6,7 +6,7 @@
 /*   By: yude-oli <yude-oli@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:15:38 by yude-oli          #+#    #+#             */
-/*   Updated: 2024/01/31 11:31:39 by yude-oli         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:46:02 by yude-oli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 #ifndef PIPEX_H
 # define PIPEX_H
 //funcs
+void error(void);
+void    execute_cmd(char **argv, char **env);
+char    *find_path(char *cmd, char **env);
+
 
 
 

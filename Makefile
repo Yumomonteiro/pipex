@@ -3,6 +3,7 @@ CC		= cc
 CFLAGS	= -Wall -Wextra -Werror -g #-fsanitize=address
 
 SRCS	= ./srcs/pipex.c \
+		./srcs/utils.c \
 
 LIBFT	= libs/libft/libft.a
 FT_PRINTF = libs/ft_printf/libftprintf.a
