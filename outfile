@@ -1,0 +1,8 @@
+total 32
+drwxr-xr-x 2 yude-oli 2023_lisboa    21 Feb  3 10:43 includes
+-rw-r--r-- 1 yude-oli 2023_lisboa   101 Feb  3 10:45 infile
+drwxr-xr-x 4 yude-oli 2023_lisboa    36 Feb  3 10:43 libs
+-rw-r--r-- 1 yude-oli 2023_lisboa   604 Feb  3 13:12 Makefile
+-rwxr-xr-x 1 yude-oli 2023_lisboa     0 Feb  3 14:04 outfile
+-rwxr-xr-x 1 yude-oli 2023_lisboa 24344 Feb  3 14:04 pipex
+drwxr-xr-x 2 yude-oli 2023_lisboa    66 Feb  3 14:04 srcs

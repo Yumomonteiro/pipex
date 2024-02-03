@@ -6,7 +6,7 @@
 /*   By: yude-oli <yude-oli@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:12:21 by yude-oli          #+#    #+#             */
-/*   Updated: 2024/02/02 16:23:11 by yude-oli         ###   ########.fr       */
+/*   Updated: 2024/02/03 13:20:45 by yude-oli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	fork_child_process(char **argv, char **env, int *fd)
 {
 	int	filein;
-
+        if (!argv[2][1])
+                error();
 	filein = open(argv[1], O_RDONLY, 0777);
 	if (filein == -1)
 		error();
@@ -30,8 +31,9 @@ void	fork_child_process(char **argv, char **env, int *fd)
 void	fork_parent_process(char **argv, char **env, int *fd)
 {
 	int	fileout;
-
-	fileout = open(argv[4], O_RDONLY | O_WRONLY | O_TRUNC, 0777);
+        if (!argv[3][1])
+                error();
+	fileout = open(argv[4], O_RDONLY | O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (fileout == -1)
 		error();
 	dup2(fd[0], STDIN_FILENO);
@@ -54,6 +56,8 @@ int	main(int argc, char **argv, char **env)
 	}
 	if (argc == 5)
 	{
+                if (!argv[2][0] || !argv[3][0])
+                        error();
 		if (pipe(fd) == -1)
 			error();
 		pid1 = fork();

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yude-oli <yude-oli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yude-oli <yude-oli@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 09:16:15 by yude-oli          #+#    #+#             */
-/*   Updated: 2023/10/11 12:04:18 by yude-oli         ###   ########.fr       */
+/*   Updated: 2024/02/03 13:01:13 by yude-oli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*str;
 	size_t	i;
 	size_t	j;
-
+	
 	str = (char *)malloc(
 			sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!str)
-		return (NULL);
 	i = 0;
 	j = 0;
+	if (!str || !s1[0] || !s2[0])
+		return (NULL);
 	while (s1[i])
 	{
 		str[j++] = s1[i];

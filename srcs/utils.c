@@ -6,7 +6,7 @@
 /*   By: yude-oli <yude-oli@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:24:00 by yude-oli          #+#    #+#             */
-/*   Updated: 2024/02/02 16:26:42 by yude-oli         ###   ########.fr       */
+/*   Updated: 2024/02/03 14:03:47 by yude-oli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ void	error(void)
 	ft_printf("\x1b[31mError\x1b[0m\n");
 	exit(0);
 }
+void	is_valid_cmd(char **cmd)
+{
+	if(!cmd)
+		error();
+}
 
 void	execute_cmd(char **argv, char **env)
 {
@@ -26,13 +31,16 @@ void	execute_cmd(char **argv, char **env)
 
 	i = -1;
 	cmd = ft_split(*argv, ' ');
+	if(!cmd[0])
+		exit(0);
 	path = find_path(cmd[0], env);
 	if (!path)
 	{
 		while (cmd[++i])
 			free(cmd[i]);
 		free(cmd);
-		error();
+		write(2, "Error, invalid command!\n", 24);
+		exit(0);
 	}
 	if (execve(path, cmd, env) == -1) 
 		error();
